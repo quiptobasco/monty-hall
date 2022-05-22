@@ -122,10 +122,12 @@ function chooseDoor(hasSwitched = false) {
 
 function revealDoor() {
     const options = doors.filter(
-        (door, i) => i !== pickedDoor.index && door.prize !== '🚂'
+        (door, i) => i !== pickedDoor.index && door.prize !== '👑'
     );
 
+    // The player got the right door!
     if (options.length === doors.length - 1) {
+        // Randomly remove 1
         options.splice(floor(random(options.length)), 1);
     }
 
@@ -169,6 +171,7 @@ function pickDoor() {
 }
 
 function makeDoors() {
+    // clear array
     for (let door of doors) {
         door.remove();
     }
